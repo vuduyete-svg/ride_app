@@ -3,7 +3,6 @@ import '../models/vehicle.dart';
 import '../models/trip.dart';
 import '../services/distance_service.dart';
 import '../services/pricing_service.dart';
-import '../services/trip_storage.dart';
 
 class TripController {
   Trip createTrip(LocationPoint from, LocationPoint to, Vehicle vehicle) {
@@ -15,15 +14,12 @@ class TripController {
 
     // tạo Trip
     Trip trip = Trip(
-      from: from.name,      // ⚡ thêm from
-      to: to.name,          // ⚡ thêm to
+      from: from.name,      
+      to: to.name,          
       distance: distance,
       price: price,
       vehicle: vehicle,
     );
-
-    // lưu lại
-    TripStorage.addTrip(trip);
 
     return trip;
   }

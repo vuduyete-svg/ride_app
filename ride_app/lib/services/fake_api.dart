@@ -2,14 +2,19 @@
 import 'fake_database.dart';
 import '../models/trip.dart';
 import '../models/vehicle.dart';
+import 'api_service.dart';
 
 class FakeAPI {
   // login user
-  static Future<bool> login(String username, String password) async {
-    await Future.delayed(Duration(milliseconds: 500)); // fake delay
-    return FakeDatabase.users.any((u) =>
-        u['username'] == username && u['password'] == password);
+static Future<Map<String, dynamic>?> login(String email, String password) async {
+  final response = await ApiService.login(email, password);
+
+  if (response != null && response['status'] == true) {
+    return response['user'];
   }
+
+  return null;
+}
 
   // lấy danh sách xe
   static List<Vehicle> getVehicles() => FakeDatabase.vehicles;

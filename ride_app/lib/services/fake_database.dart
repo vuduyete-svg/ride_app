@@ -3,11 +3,14 @@ import '../models/trip.dart';
 import '../models/vehicle.dart';
 
 class FakeDatabase {
+  // Số dư ví giả lập
+  static double walletBalance = 10000; // Mặc định có 500k
+
   // Người dùng (login)
   static final List<Map<String, String>> users = [
-    {"username": "vuduyet", "password": "1"},
-    {"username": "daodat", "password": "1"},
-    {"username": "phananh", "password": "1"},
+  {"username": "1", "password": "1", "fullname": "Vũ Duyệt"},
+  {"username": "2", "password": "1", "fullname": "Đào Diệu Đạt"},
+  {"username": "3", "password": "1", "fullname": "Phan Anh"},
   ];
 
   // Xe có sẵn
